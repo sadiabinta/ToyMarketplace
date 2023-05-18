@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
+
+    const {signUp,signInWithGoogle}=useContext(AuthContext)
     const handleRegister=event=>{
         event.preventDefault();
         const form=event.target;
@@ -11,6 +15,27 @@ const Register = () => {
         const photo=form.photo.value;
 
         console.log(name,email,password,photo)
+
+        signUp(email,password)
+        .then(result=>{
+            const user=result.user;
+            user.displayName=name;
+            user.photoURL=photo;
+            console.log(user)
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
+    }
+    const handleGoogleLogIn=()=>{
+        signInWithGoogle()
+        .then(result=>{
+            const user=result.user;
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -52,7 +77,7 @@ const Register = () => {
                                 </label>
                             <div className="form-control mt-6">
                                 <button className="btn bg-pink-400">Register</button>
-                                <button className="btn bg-pink-400 mt-4"><FaGoogle className="me-2 text-blue-600"/>Register with Google</button>
+                                <button onClick={handleGoogleLogIn} className="btn bg-pink-400 mt-4"><FaGoogle className="me-2 text-blue-600"/>Register with Google</button>
                             </div>
                         </form>
                         <p><small>Already Have an account? please <Link className="text-pink-600" to='/login'>Login</Link></small></p>

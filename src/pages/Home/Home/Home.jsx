@@ -1,9 +1,12 @@
+import Carousel from "../Carousel/Carousel";
+import Gallery from "../Gallery/Gallery";
 
 
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <Carousel></Carousel>
+            <Gallery></Gallery>
         </div>
     );
 };

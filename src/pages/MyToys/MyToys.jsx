@@ -6,7 +6,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     
-
+    console.log(user.email)
     const url = `https://toy-marketplace-server-three-eta.vercel.app/allToys?email=${user?.email}`;
 
     useEffect(() => {

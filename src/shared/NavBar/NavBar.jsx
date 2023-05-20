@@ -10,7 +10,7 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => { })
-      .catch((error) => { })
+      .catch((error) => {console.log(error) })
   }
   const handlehover = () => {
     setIsMouseIn(true);

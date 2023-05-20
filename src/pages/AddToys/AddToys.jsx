@@ -9,7 +9,7 @@ const AddToys = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (toyData,event) => {
         console.log(toyData);
-        fetch('http://localhost:5000/allToys',{
+        fetch('https://toy-marketplace-server-three-eta.vercel.app/allToys',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

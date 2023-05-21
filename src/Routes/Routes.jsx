@@ -11,7 +11,9 @@ import Register from "../pages/Register/Register";
 import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import PrivateRoute from "./PrivateRoute";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  
+  [
     {
       path: "/",
       element: <Main></Main>,
@@ -51,6 +53,7 @@ const router = createBrowserRouter([
       },
     ]
     },
-  ]);
+  ]
+  );
 
   export default router;

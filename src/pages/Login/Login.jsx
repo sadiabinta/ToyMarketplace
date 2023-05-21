@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
+import { TabTitle } from "../../utilities/TabTitle";
 
 const Login = () => {
+    TabTitle('DisneyLand Toys||Log in')
     const {logInWithEmail}=useContext(AuthContext)
-    const handleRegister=event=>{
+    const location=useLocation();
+    const navigate=useNavigate();
+
+    const from=location.state?.from?.pathname || '/';
+    const handleLogin=event=>{
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;
@@ -17,7 +23,9 @@ const Login = () => {
             const user=result.user;
             //user.displayName=name;
             //.photoURL=photo;
-            console.log(user)
+            console.log(user);
+            navigate(from,{replace:true})
+
         })
         .catch(error=>{
             console.log(error)
@@ -34,7 +42,7 @@ const Login = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body rounded-xl">
                         <h1 className="text-3xl font-bold text-center">Please Login!</h1>
-                        <form onSubmit={handleRegister}>
+                        <form onSubmit={handleLogin}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

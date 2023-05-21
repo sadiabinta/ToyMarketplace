@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../Providers/AuthProvider";
+import { TabTitle } from "../../utilities/TabTitle";
 
 
 const AddToys = () => {
+    TabTitle('DisneyLand Toys||Add Toy')
     const {user}=useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const onSubmit = (toyData,event) => {
@@ -74,9 +76,9 @@ const AddToys = () => {
                                         <span className="label-text">Sub category</span>
                                     </label>
                                     <select className="input input-bordered" {...register("subCategory", { required: true})}>
-                                        <option value="Action Figure">Action Figure</option>
-                                        <option value="Car">Car</option>
-                                        <option value="Doll">Doll</option>
+                                        <option value="actionFigure">Action Figure</option>
+                                        <option value="car">Car</option>
+                                        <option value="doll">Doll</option>
                                     </select>
                                 </div>
                                 <div className="form-control">

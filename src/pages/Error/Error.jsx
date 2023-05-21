@@ -1,6 +1,8 @@
 import { useRouteError } from 'react-router-dom';
+import { TabTitle } from '../../utilities/TabTitle';
 
 const Error = () => {
+    TabTitle('DisneyLand Toys||404-Error')
     const error=useRouteError();
     console.error(error);
     return (

@@ -1,5 +1,7 @@
+import { TabTitle } from "../../utilities/TabTitle";
 
 const Blog = () => {
+    TabTitle('DisneyLand Toys||Blog')
     return (
         <div className='mx-16 my-10 bg-blue-100 px-5 py-5 rounded-xl'>
             <h2 className='text-3xl font-bold mb-8'>Q1:What is an access token and refresh token? How do they work and where should we store them on the client-side? </h2>

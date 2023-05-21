@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ToyDetails from "../ToyDetails/ToyDetails";
+import { TabTitle } from "../../utilities/TabTitle";
 
 
 const AllToys = () => {
+    TabTitle('DisneyLand Toys||All Toys')
     const [toys, setToys] = useState([]);
     let num = 1;
 
@@ -40,9 +42,9 @@ const AllToys = () => {
                             <td>{toy.quantity}</td>
                             <td>
                                 {/* The button to open modal */}
-                                <Link to="/toyDetails"><button>
-                                    {/* <ToyDetails></ToyDetails> */}
-                                View Details</button></Link>
+                                
+                                   <Link to={'/toyDetails'} toy={toy}>View Details</Link> 
+                                
                             
                         </td>
                         </tr>

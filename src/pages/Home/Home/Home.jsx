@@ -1,5 +1,6 @@
 import Carousel from "../Carousel/Carousel";
 import Gallery from "../Gallery/Gallery";
+import TabCategory from "../TabCategory/TabCategory";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Carousel></Carousel>
             <Gallery></Gallery>
+            <TabCategory></TabCategory>
         </div>
     );
 };
